@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        
+
+        </style>
+    </head>
+    <body>
+        <p>
+            
+            <button onclick="colorb()">Click me change to blue</button>
+            <button onclick="colorr()">Click me change to red</button>
+        </p>
+        <label for="texto">write some text here :</label>
+
+        <input type="text" id="texto" name="texto" >
+
+        <script>
+            function colorb() {
+                d3.selectAll("p").style("color", "blue");
+            }
+            function colorr() {
+                d3.selectAll("p").style("color", "red");
+            }
+        </script>
+    </body>
+
+
+</html>
