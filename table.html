@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+     
+            th {
+                color:blue;
+            }
+            .name{
+                color:hotpink;
+                border:solid black 1pt;
+            }
+            .x{
+                color:green;
+            }
+            .x.hover{
+                font-weight:bold;
+            }
+        </style>
+        <title>d3j.tabla</title>
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+    </head>
+    <body>
+        <p>
+            this page is to show the table!
+            <a href="https://github.com/tamakiseda/Assignment2/blob/main/data1.csv" target="_blank"><b>data1</b></a>
+            <button onclick="colorP()">Click me</button>
+            <div class="data1">
+                <table id="d1">
+                <tr>
+                    <td>name</td>
+                    <td>x</td>
+                    <td>y</td>
+                </tr>
+                </table>
+            </div>
+        </p>
+            <script>
+                data1_url = false ? "data1.csv" : "https://github.com/tamakiseda/Assignment2/blob/main/data1.csv"
+                d3.csv(data1_url,
+            (d,i,c) => {
+                if (i>10) return d
+                d3.select("table")
+                .append("tr")
+                .selectAll("td")
+                .data(c).enter()
+                .append("td").text(e => d[e])
+            })
+
+                data1=d3.csv(data_url).then(tidying)
+
+
+                var columns;
+
+            function tidying(data1){
+                data=data1
+                columns=d.columns
+                dates = Array.from(new Set(data1.map(e => e.data1)));
+                maxValue = d3.reduce(d, (p, v) => Math.max(p,v.value) , 0)
+
+
+                dateSelector(data1);
+                makeHeader(d)
+                updateTable(d)
+
+            }
+
+            function colorP() {
+                d3.selectAll("p").style("color", "yellow");
+            }
+            </script>    
+    </body>
+</html>
+
+       
