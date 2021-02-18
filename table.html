@@ -60,7 +60,7 @@
                 .selectAll("td")
                 .data(c).enter()
                 .append("td").text(e => d[e])
-            }
+                })
 
                 data1=d3.csv(data_url).then(tidying)
 
